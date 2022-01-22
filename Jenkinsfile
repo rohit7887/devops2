@@ -33,6 +33,11 @@ node {
      sh 'mvn sonar:sonar'
    }
  }
+   
+   stage('Terraform Deployment'){
+     sh "PATH=/bin/terraform"
+     sh "terraform init ; terraform apply --auto-approve"
+ }
   
 }
 
