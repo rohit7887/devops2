@@ -4,13 +4,11 @@ variable "key_name" {
 
 }
 
-
 variable "pvt_key_name" {
 
   default = "/root/.ssh/my-key.pem"
 
 }
-
 
 variable "sg_id" {
 
