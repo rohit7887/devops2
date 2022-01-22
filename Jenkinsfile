@@ -27,6 +27,12 @@ node {
  stage('Docker Deployment') {
   sh 'docker-compose up -d --build'
  }
+   
+  stage('SonarQubeScan') {
+   withSonarQubeEnv('Sonar'){
+     sh 'mvn sonar:sonar'
+   }
+ }
   
 }
 
