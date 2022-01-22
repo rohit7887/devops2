@@ -27,10 +27,17 @@ node {
  stage('Docker Deployment') {
   sh 'docker-compose up -d --build'
  }
- 
-  stage('Terraform Deployment'){
-     sh "PATH=/bin/terraform"
-     sh "terraform init ; terraform apply --auto-approve"
- }
- 
+  
+}
+
+pipeline {
+    agent any
+     
+    stages {
+        stage('Sending mail') {
+            steps {
+               emailext attachLog: true, body: 'Jenkins build ', subject: 'Test Jenkins', to: 'rrcasper3@gmail.com'
+            }
+        }
+    }
 }
