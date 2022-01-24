@@ -1,6 +1,4 @@
-variable "key_name" {
-
-  default = "rohit"
+ default = "rohit"
 
 }
 
